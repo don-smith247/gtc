@@ -1,522 +1,702 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-    .trading-insights-section {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 60px 20px;
-        font-family: 'Arial', sans-serif;
-        background: linear-gradient(135deg, #0f0f23, #1a1a2e);
-        border-radius: 25px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .trading-insights-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(45deg, rgba(0, 212, 255, 0.05), rgba(255, 107, 53, 0.05));
-        pointer-events: none;
-    }
-
-    .insights-header {
-        text-align: center;
-        margin-bottom: 50px;
-        position: relative;
-        z-index: 2;
-    }
-
-    .insights-title {
-        font-size: 3rem;
-        font-weight: bold;
-        color: #ffffff;
-        margin-bottom: 15px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        background: linear-gradient(45deg, #00d4ff, #ff6b35);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    .insights-subtitle {
-        font-size: 1.2rem;
-        color: #b0b0b0;
-        font-weight: 300;
-        max-width: 600px;
-        margin: 0 auto;
-        line-height: 1.6;
-    }
-
-    .insights-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 30px;
-        margin-bottom: 50px;
-        position: relative;
-        z-index: 2;
-    }
-
-    .insight-card {
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        padding: 30px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .insight-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-        transition: left 0.5s ease;
-    }
-
-    .insight-card:hover::before {
-        left: 100%;
-    }
-
-    .insight-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        border-color: rgba(0, 212, 255, 0.5);
-    }
-
-    .insight-icon {
-        font-size: 3rem;
-        margin-bottom: 20px;
-        background: linear-gradient(45deg, #00d4ff, #0099cc);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    .insight-title {
-        font-size: 1.4rem;
-        font-weight: bold;
-        color: #ffffff;
-        margin-bottom: 15px;
-    }
-
-    .insight-content {
-        color: #e0e0e0;
-        line-height: 1.7;
-        font-size: 1rem;
-    }
-
-    .insight-highlight {
-        color: #00d4ff;
-        font-weight: bold;
-    }
-
-    .stats-section {
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 20px;
-        padding: 40px;
-        margin: 40px 0;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        position: relative;
-        z-index: 2;
-    }
-
-    .stats-title {
-        text-align: center;
-        font-size: 2rem;
-        color: #ffffff;
-        margin-bottom: 30px;
-        font-weight: bold;
-    }
-
-    .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 30px;
-    }
-
-    .stat-item {
-        text-align: center;
-        padding: 20px;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 15px;
-        transition: all 0.3s ease;
-    }
-
-    .stat-item:hover {
-        transform: scale(1.05);
-        background: rgba(255, 255, 255, 0.1);
-    }
-
-    .stat-number {
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #00d4ff;
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    .stat-label {
-        color: #b0b0b0;
-        font-size: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .tips-section {
-        margin-top: 50px;
-        position: relative;
-        z-index: 2;
-    }
-
-    .tips-title {
-        text-align: center;
-        font-size: 2.2rem;
-        color: #ffffff;
-        margin-bottom: 30px;
-        font-weight: bold;
-    }
-
-    .tips-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-    }
-
-    .tip-card {
-        background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 107, 53, 0.1));
-        border-radius: 15px;
-        padding: 25px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        transition: all 0.3s ease;
-        position: relative;
-    }
-
-    .tip-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .tip-number {
-        position: absolute;
-        top: -10px;
-        left: 20px;
-        background: linear-gradient(45deg, #ff6b35, #f7931e);
-        color: white;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 0.9rem;
-    }
-
-    .tip-content {
-        color: #ffffff;
-        font-size: 1rem;
-        line-height: 1.6;
-        padding-top: 10px;
-    }
-
-    .market-alert {
-        background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(255, 152, 0, 0.2));
-        border: 2px solid rgba(255, 193, 7, 0.5);
-        border-radius: 15px;
-        padding: 25px;
-        margin: 30px 0;
-        text-align: center;
-        position: relative;
-        z-index: 2;
-    }
-
-    .alert-icon {
-        font-size: 2rem;
-        color: #ffc107;
-        margin-bottom: 15px;
-    }
-
-    .alert-title {
-        font-size: 1.3rem;
-        font-weight: bold;
-        color: #ffffff;
-        margin-bottom: 10px;
-    }
-
-    .alert-content {
-        color: #e0e0e0;
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-
-    @media (max-width: 768px) {
-        .insights-title {
-            font-size: 2.2rem;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Traders Conference Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .insights-grid {
-            grid-template-columns: 1fr;
-            gap: 20px;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a1628 0%, #1e3a8a 50%, #1d4ed8 100%);
+            min-height: 100vh;
+            color: #ffffff;
         }
 
-        .stats-grid {
-            grid-template-columns: repeat(2, 1fr);
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
         }
 
-        .tips-grid {
-            grid-template-columns: 1fr;
+        .event-header {
+            text-align: center;
+            margin-bottom: 2rem;
         }
 
-        .trading-insights-section {
-            padding: 40px 15px;
+        .event-image {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            border-radius: 20px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
         }
-    }
 
-    /* Floating particles animation */
-    .particle {
-        position: absolute;
-        background: rgba(0, 212, 255, 0.3);
-        border-radius: 50%;
-        animation: float-particle 8s linear infinite;
-        pointer-events: none;
-    }
-
-    .particle:nth-child(odd) {
-        background: rgba(255, 107, 53, 0.3);
-        animation-duration: 12s;
-    }
-
-    @keyframes float-particle {
-        0% {
-            transform: translateY(100vh) rotate(0deg);
-            opacity: 0;
+        .event-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
         }
-        10% {
-            opacity: 1;
-        }
-        90% {
-            opacity: 1;
-        }
-        100% {
-            transform: translateY(-100px) rotate(360deg);
-            opacity: 0;
-        }
-    }
-</style>
 
-<section class="trading-insights-section">
-    <!-- Floating particles -->
-    <div class="particle" style="left: 10%; width: 4px; height: 4px; animation-delay: 0s;"></div>
-    <div class="particle" style="left: 20%; width: 6px; height: 6px; animation-delay: 2s;"></div>
-    <div class="particle" style="left: 30%; width: 3px; height: 3px; animation-delay: 4s;"></div>
-    <div class="particle" style="left: 50%; width: 5px; height: 5px; animation-delay: 6s;"></div>
-    <div class="particle" style="left: 70%; width: 4px; height: 4px; animation-delay: 8s;"></div>
-    <div class="particle" style="left: 80%; width: 3px; height: 3px; animation-delay: 10s;"></div>
-    <div class="particle" style="left: 90%; width: 6px; height: 6px; animation-delay: 12s;"></div>
+        .event-subtitle {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
 
-    <div class="insights-header">
-        <h2 class="insights-title">Trading Insights</h2>
-        <p class="insights-subtitle">
-            Master the markets with professional trading strategies, risk management techniques, and real-time market analysis from industry experts.
-        </p>
-    </div>
+        .event-details {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
 
-    <div class="insights-grid">
-        <div class="insight-card">
-            <div class="insight-icon">
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        .detail-item i {
+            color: #06b6d4;
+        }
+
+        .registration-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            color: #1e293b;
+        }
+
+        .form-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #1e293b;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+            font-size: 0.9rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #1f2937;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #06b6d4;
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+        }
+
+        input::placeholder {
+            color: #9ca3af;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3);
+        }
+
+        .free-badge {
+            background: #10b981;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .terms-text {
+            font-size: 0.8rem;
+            color: #6b7280;
+            text-align: center;
+            margin-top: 1rem;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .event-title {
+                font-size: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .event-details {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            overflow-x: hidden; /* Prevent horizontal scroll during menu animation */
+        }
+        
+        /* Navigation bar styles */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid #19a5c0;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 2rem;
+            width: 100%;
+            max-width: 1400px; /* Increased max-width for larger screens */
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* Logo styling */
+        .logo {
+            display: flex;
+            align-items: center;
+            z-index: 1001; /* Keep logo above the sliding menu */
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+        
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #19a5c0, #0e4d94);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover .logo-text {
+            text-shadow: 0 0 5px rgba(25, 165, 192, 0.3);
+        }
+        
+        /* Desktop navigation links */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            justify-content: center; /* Center navigation links */
+            flex: 1; /* Allow links section to grow */
+            margin: 0 2rem; /* Add margins for better spacing */
+        }
+        
+        .nav-links li {
+            margin: 0 1rem; /* Even spacing between links */
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            position: relative;
+            padding: 0.3rem 0;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            white-space: nowrap; /* Prevent links from wrapping */
+        }
+        
+        .nav-links a:hover {
+            color: #19a5c0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #19a5c0, #0e4d94);
+            transition: width 0.3s ease;
+            border-radius: 5px;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Active link styling */
+        .nav-links a.active {
+            color: #19a5c0;
+        }
+        
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        /* Navigation buttons and icons */
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-button {
+            background-color: transparent;
+            border: none;
+            margin-left: 1rem;
+            cursor: pointer;
+            color: #333;
+            transition: transform 0.2s, color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        
+        .nav-button:hover {
+            color: #19a5c0;
+            transform: translateY(-2px);
+            background-color: rgba(25, 165, 192, 0.1);
+        }
+        
+        .primary-button {
+            background: linear-gradient(45deg, #19a5c0, #0e4d94);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(25, 165, 192, 0.3);
+            display: flex;
+            align-items: center;
+            margin-left: 1.5rem;
+        }
+        
+        .primary-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(25, 165, 192, 0.4);
+        }
+        
+        .primary-button span {
+            margin-right: 8px;
+        }
+        
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #333;
+            z-index: 1001; /* Keep mobile menu button above sliding menu */
+            width: 40px;
+            height: 40px;
+            position: relative;
+        }
+        
+        .menu-icon {
+            width: 24px;
+            height: 2px;
+            background-color: #333;
+            position: relative;
+            transition: all 0.3s ease;
+            margin: auto;
+        }
+        
+        .menu-icon::before,
+        .menu-icon::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background-color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-icon::before {
+            transform: translateY(-8px);
+        }
+        
+        .menu-icon::after {
+            transform: translateY(8px);
+        }
+        
+        /* Animated hamburger to X */
+        .menu-active .menu-icon {
+            background-color: transparent;
+        }
+        
+        .menu-active .menu-icon::before {
+            transform: rotate(45deg);
+            background-color: #19a5c0;
+        }
+        
+        .menu-active .menu-icon::after {
+            transform: rotate(-45deg);
+            background-color: #19a5c0;
+        }
+        
+        /* Sliding mobile navigation */
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -280px; /* Start off-screen */
+                width: 280px;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+                z-index: 1000;
+                margin: 0; /* Reset margin for mobile */
+                justify-content: flex-start; /* Reset justify-content for mobile */
+            }
+            
+            .nav-links.active {
+                right: 0; /* Slide in */
+            }
+            
+            .nav-links li {
+                margin: 0.8rem 0;
+                opacity: 0;
+                transform: translateX(20px);
+                transition: opacity 0.4s ease, transform 0.4s ease;
+                transition-delay: 0s;
+            }
+            
+            .nav-links.active li {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            
+            /* Staggered animation for list items */
+            .nav-links.active li:nth-child(1) { transition-delay: 0.1s; }
+            .nav-links.active li:nth-child(2) { transition-delay: 0.2s; }
+            .nav-links.active li:nth-child(3) { transition-delay: 0.3s; }
+            .nav-links.active li:nth-child(4) { transition-delay: 0.4s; }
+            .nav-links.active li:nth-child(5) { transition-delay: 0.5s; }
+            .nav-links.active li:nth-child(6) { transition-delay: 0.6s; }
+            
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* Overlay for mobile menu */
+            .menu-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+                visibility: hidden;
+                opacity: 0;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+            
+            .menu-overlay.active {
+                visibility: visible;
+                opacity: 1;
+            }
+            
+            /* Social links in mobile menu */
+            .mobile-social-links {
+                display: flex;
+                margin-top: 2rem;
+                border-top: 1px solid #eee;
+                padding-top: 1.5rem;
+            }
+            
+            .social-icon {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                background: linear-gradient(45deg, #19a5c0, #0e4d94);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 1rem;
+                color: white;
+                transition: transform 0.3s;
+            }
+            
+            .social-icon:hover {
+                transform: translateY(-3px);
+            }
+        }
+        
+        /* Large screen optimizations */
+        @media (min-width: 1600px) {
+            .navbar-container {
+                max-width: 1600px; /* Even larger max-width for extra large screens */
+                padding: 0.8rem 3rem; /* More padding on very large screens */
+            }
+            
+            .logo-text {
+                font-size: 1.4rem; /* Larger logo text */
+            }
+            
+            .nav-links {
+                margin: 0 4rem; /* More space around nav links */
+            }
+            
+            .nav-links a {
+                font-size: 1.05rem; /* Slightly larger text */
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-container {
+                padding: 0.8rem 1rem;
+            }
+            
+            .primary-button span {
+                display: none;
+            }
+            
+            .primary-button {
+                padding: 0.6rem;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                justify-content: center;
+            }
+            
+            .nav-button {
+                margin-left: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-text {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">
+                <img style="border-radius: 20px;" src="./logo.jpg" alt="GTC Logo" />
+                <span class="logo-text">Global Traders Conference</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="./index.html" class="active">Home</a></li>
+                
+               
+                
+                
+                <!-- Social links shown only in mobile menu -->
+                <div class="mobile-social-links">
+                    <a href="#" class="social-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://t.me/gtczam" class="social-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 7.5a2.25 2.25 0 0 0 .045 4.107l3.277 1.138v4.357a1.5 1.5 0 0 0 2.578 1.058l2.833-2.686 3.464 2.693a2.25 2.25 0 0 0 3.658-1.176l3-16.5a2.247 2.247 0 0 0-1.833-2.706z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </ul>
+            
+            <div class="nav-buttons">
+                
+                
+                <!-- <button class="primary-button">
+                    <span>Join Now</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                        <polyline points="10 17 15 12 10 7"></polyline>
+                        <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
+                </button> -->
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <div class="menu-icon"></div>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile menu overlay -->
+    <div class="menu-overlay"></div>
+    <div class="container">
+        <div class="event-header">
+            <div class="event-image">
                 <i class="fas fa-chart-line"></i>
             </div>
-            <h3 class="insight-title">Technical Analysis</h3>
-            <p class="insight-content">
-                Master chart patterns, support and resistance levels, and key indicators like <span class="insight-highlight">RSI, MACD, and Moving Averages</span>. Understanding price action is crucial for timing your entries and exits effectively.
-            </p>
+            <h1 class="event-title">Global Traders Conference</h1>
+            <p class="event-subtitle">The Web3 & Forex Summer Takeover<br>Zamfara Wealth Conference</p>
+            
+            <div class="event-details">
+                <div class="detail-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>June 20, 2025 • 10:00 PM</span>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Command Guest House, Gusau</span>
+                </div>
+            </div>
         </div>
 
-        <div class="insight-card">
-            <div class="insight-icon">
-                <i class="fas fa-shield-alt"></i>
-            </div>
-            <h3 class="insight-title">Risk Management</h3>
-            <p class="insight-content">
-                Never risk more than <span class="insight-highlight">2-3% of your capital</span> per trade. Use stop-loss orders religiously and maintain a risk-to-reward ratio of at least 1:2 to ensure long-term profitability.
-            </p>
-        </div>
+        <div class="registration-card">
+            <h2 class="form-title">Register for free <span class="free-badge">FREE</span></h2>
+            
+            <form id="registrationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First name</label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="First name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last name</label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="Last name">
+                    </div>
+                </div>
 
-        <div class="insight-card">
-            <div class="insight-icon">
-                <i class="fas fa-brain"></i>
-            </div>
-            <h3 class="insight-title">Trading Psychology</h3>
-            <p class="insight-content">
-                Control your emotions and stick to your trading plan. <span class="insight-highlight">Fear and greed</span> are the biggest enemies of successful trading. Develop discipline and patience for consistent results.
-            </p>
-        </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
 
-        <div class="insight-card">
-            <div class="insight-icon">
-                <i class="fas fa-globe"></i>
-            </div>
-            <h3 class="insight-title">Forex Fundamentals</h3>
-            <p class="insight-content">
-                Stay updated with economic calendars, central bank policies, and geopolitical events. <span class="insight-highlight">Interest rates, GDP, and inflation</span> significantly impact currency movements.
-            </p>
-        </div>
+                <div class="form-group">
+                    <label for="experience">Trading experience (optional)</label>
+                    <select id="experience" name="experience">
+                        <option value="">Select your level</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                        <option value="expert">Expert</option>
+                    </select>
+                </div>
 
-        <div class="insight-card">
-            <div class="insight-icon">
-                <i class="fas fa-coins"></i>
-            </div>
-            <h3 class="insight-title">Crypto Trading</h3>
-            <p class="insight-content">
-                Understand market cycles, DeFi protocols, and blockchain fundamentals. <span class="insight-highlight">Bitcoin dominance and altcoin seasons</span> create unique opportunities in the crypto space.
-            </p>
-        </div>
+                <button type="submit" class="submit-btn">
+                    Register now
+                </button>
 
-        <div class="insight-card">
-            <div class="insight-icon">
-                <i class="fas fa-clock"></i>
-            </div>
-            <h3 class="insight-title">Market Timing</h3>
-            <p class="insight-content">
-                Learn optimal trading sessions: <span class="insight-highlight">London (8AM-5PM GMT)</span> and <span class="insight-highlight">New York (1PM-10PM GMT)</span> overlaps offer the highest volatility and liquidity.
-            </p>
-        </div>
-    </div>
-
-    <div class="stats-section">
-        <h3 class="stats-title">Market Statistics</h3>
-        <div class="stats-grid">
-            <div class="stat-item">
-                <span class="stat-number">$7.5T</span>
-                <span class="stat-label">Daily Forex Volume</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">90%</span>
-                <span class="stat-label">Traders Lose Money</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">24/5</span>
-                <span class="stat-label">Forex Market Hours</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">1:30</span>
-                <span class="stat-label">Average Leverage</span>
-            </div>
+                <div class="terms-text">
+                    By registering, you agree to our terms of service and privacy policy. 
+                    You'll receive event updates and may unsubscribe at any time.
+                </div>
+            </form>
         </div>
     </div>
 
-    <div class="market-alert">
-        <div class="alert-icon">
-            <i class="fas fa-exclamation-triangle"></i>
-        </div>
-        <h4 class="alert-title">Market Alert</h4>
-        <p class="alert-content">
-            High-impact news events can cause extreme volatility. Always check the economic calendar before trading and consider reducing position sizes during major announcements.
-        </p>
-    </div>
-
-    <div class="tips-section">
-        <h3 class="tips-title">Pro Trading Tips</h3>
-        <div class="tips-grid">
-            <div class="tip-card">
-                <div class="tip-number">1</div>
-                <p class="tip-content">
-                    <strong>Start Small:</strong> Begin with a demo account and gradually increase position sizes as you gain experience and confidence.
-                </p>
-            </div>
-
-            <div class="tip-card">
-                <div class="tip-number">2</div>
-                <p class="tip-content">
-                    <strong>Keep a Journal:</strong> Record all trades with entry/exit reasons, emotions, and lessons learned for continuous improvement.
-                </p>
-            </div>
-
-            <div class="tip-card">
-                <div class="tip-number">3</div>
-                <p class="tip-content">
-                    <strong>Diversify Strategies:</strong> Don't rely on a single approach. Combine scalping, swing trading, and position trading methods.
-                </p>
-            </div>
-
-            <div class="tip-card">
-                <div class="tip-number">4</div>
-                <p class="tip-content">
-                    <strong>Stay Informed:</strong> Follow reputable financial news sources and join trading communities for market insights and analysis.
-                </p>
-            </div>
-
-            <div class="tip-card">
-                <div class="tip-number">5</div>
-                <p class="tip-content">
-                    <strong>Continuous Learning:</strong> Markets evolve constantly. Attend webinars, read books, and learn from successful traders regularly.
-                </p>
-            </div>
-
-            <div class="tip-card">
-                <div class="tip-number">6</div>
-                <p class="tip-content">
-                    <strong>Technology Edge:</strong> Use trading bots, alerts, and advanced charting tools to gain competitive advantages in the market.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<script>
-    // Add interactive animations
-    document.addEventListener('DOMContentLoaded', function() {
-        const cards = document.querySelectorAll('.insight-card, .tip-card, .stat-item');
-        
-        // Intersection Observer for scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        // Initialize cards with hidden state
-        cards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            if (!data.firstName || !data.lastName || !data.email) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Simulate successful registration
+            alert('🎉 You\'re registered!\n\nCheck your email for confirmation and event details.');
+            this.reset();
         });
-
-        // Add click interactions
-        cards.forEach(card => {
-            card.addEventListener('click', function() {
-                this.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 150);
-            });
-        });
-
-        // Animate stat numbers
-        const statNumbers = document.querySelectorAll('.stat-number');
-        statNumbers.forEach(stat => {
-            const originalText = stat.textContent;
-            stat.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.1)';
-                this.style.color = '#ff6b35';
-            });
-            stat.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1)';
-                this.style.color = '#00d4ff';
-            });
-        });
-    });
-</script>
+    </script>
+    <script src="./index.js"></script> 
+</body>
+</html>
