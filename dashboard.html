@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Traders Conference - Navigation</title>
-    <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+    <title>GTC Dashboard - Earn Points & Manage Referrals</title>
+    <link rel="stylesheet" href="./dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
       * {
             margin: 0;
@@ -563,18 +562,15 @@
             }
         }
     </style>
-    
 </head>
 <body>
     <nav class="navbar">
         <div class="navbar-container">
             <a href="#" class="nav-logo">
-                <a href="#" class="nav-logo">
                 <div style="width: 45px; height: 45px; background: linear-gradient(45deg, #00bcd4, #0077be); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
                     <i class="fas fa-chart-line"></i>
                 </div>
                 <span class="logo-text">Global Traders Conference</span>
-            </a>
             </a>
             
             <ul class="nav-links" id="navLinks">
@@ -592,29 +588,48 @@
                 <!-- Social links shown only in mobile menu -->
                 <div class="mobile-social-links">
                     <a href="#" class="social-icon">
-                        <i class="fab fa-facebook-f"></i>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
                     </a>
                     <a href="#" class="social-icon">
-                        <i class="fab fa-twitter"></i>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
                     </a>
                     <a href="#" class="social-icon">
-                        <i class="fab fa-instagram"></i>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
                     </a>
                     <a href="https://t.me/gtczam" class="social-icon">
-                        <i class="fab fa-telegram-plane"></i>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 7.5a2.25 2.25 0 0 0 .045 4.107l3.277 1.138v4.357a1.5 1.5 0 0 0 2.578 1.058l2.833-2.686 3.464 2.693a2.25 2.25 0 0 0 3.658-1.176l3-16.5a2.247 2.247 0 0 0-1.833-2.706z"></path>
+                        </svg>
                     </a>
                 </div>
             </ul>
             
             <div class="nav-buttons">
                 <button class="cart-button" onclick="toggleCart()" style="display: none;">
-                    <i class="fas fa-shopping-cart"></i>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
                     <span class="cart-badge" id="cartBadge">3</span>
                 </button>
                 
                 <button class="primary-button" onclick="signUp()">
-                    <span><a href="./signup.html">Sign Up</a></span>
-                    <i class="fas fa-user-plus"></i>
+                    <span><a style="color: white; text-decoration: none;" href="./signup.html">Sign Up</a></span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
                 </button>
                 
                 <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
@@ -626,266 +641,504 @@
 
     <!-- Mobile menu overlay -->
     <div class="menu-overlay" id="menuOverlay" onclick="closeMobileMenu()"></div>
-    
 
-  <section class="hero">
-    <div class="particles">
-      <!-- Particles will be generated by JavaScript -->
-    </div>
-    <div class="hero-content">
-      <div class="logo-container">
-        <div class="logo">
-          <img style="border-radius: 5px; width: 100px; height: 50px;" src="./logo.jpg" alt="GTC Logo">
-          <div class="logo-text">
-            <h1>Global Traders Conference</h1>
-            <div class="verified-badge">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
-              Verified
-            </div>
-            <p>@GTCZ25</p>
-          </div>
-        </div>
-      </div>
+    <script>
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuOverlay = document.getElementById('menuOverlay');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            
+            navLinks.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuOverlay = document.getElementById('menuOverlay');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            
+            navLinks.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+        }
+
+        // Cart functionality
+        function toggleCart() {
+            alert('Cart functionality - Show cart sidebar or modal');
+        }
+
       
-      <div class="hero-headline">
-        <h2>Connecting Traders. Building Leaders. Creating Opportunities.</h2>
-      </div>
-      
-      <div class="hero-description">
-        <p>Join our official community hub for exclusive trading insights, professional networking, job opportunities, and the latest industry updates. The premier destination for traders looking to advance their careers and expand their knowledge.</p>
-        <div class="social-links">
-          <a href="#" class="social-link">
-            <i class="fab fa-telegram"></i>
-          </a>
-          <a href="#" class="social-link">
-            <i class="far fa-envelope"></i>
-          </a>
-          <a href="#" class="social-link">
-            <i class="fab fa-twitter"></i>
-          </a>
-        </div>
-      </div>
-      
-      <div class="hero-cta">
-        <!-- <a href="#additional" class="cta-button primary-button">Join the Conference</a> -->
-        <a href="#additional" class="cta-button secondary-button">Explore Opportunities</a>
-      </div>
-      
-      <div class="stats-container">
-        <div class="stat">
-          <div style="color: white;" class="stat-number">360+</div>
-          <div style="color: white;" class="stat-label">Followers</div>
-        </div>
         
-        <div class="stat">
-          <div style="color: white;" class="stat-number">April 2025</div>
-          <div style="color: white;" class="stat-label">Joined</div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="conference-section">
-    <div class="conference-container">
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
 
-        <div class="conference-header">
-            <h1 class="conference-title">Global Traders Conference</h1>
-            <p class="conference-subtitle">Zamfara Wealth - The Web3 & Forex Summer Takeover</p>
-        </div>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+            }
+        });
 
-        <div class="image-container">
-            <img src="./WhatsApp Image 2025-05-23 at 15.24.35_35a30e3b.jpg" 
-                 alt="Global Traders Conference - Zamfara Wealth Web3 & Forex Summer Takeover" 
-                 class="conference-image" />
-        </div>
+        // Close mobile menu when clicking on nav links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
 
-        <div class="conference-details">
-            <div class="detail-card">
-                <div class="detail-icon">
-                    <i class="fas fa-calendar-alt"></i>
+        // Cart badge animation
+        function updateCartBadge(count) {
+            const badge = document.getElementById('cartBadge');
+            badge.textContent = count;
+            badge.style.animation = 'none';
+            setTimeout(() => {
+                badge.style.animation = 'pulse 2s infinite';
+            }, 10);
+        }
+    </script>
+    <div class="dashboard-bg"></div>
+    
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div class="header-content">
+                <div class="welcome-section">
+                    <h1>Welcome Back, Alex!</h1>
+                    <p>Complete social media tasks to earn points and climb the leaderboard. Share your referral link to earn even more rewards!</p>
                 </div>
-                <h3 class="detail-title">Date & Time</h3>
-                <p class="detail-content">
-                    20th June 2025<br>
-                    10:00 PM
-                </p>
-            </div>
-
-            <div class="detail-card">
-                <div class="detail-icon">
-                    <i class="fas fa-map-marker-alt"></i>
+                <div class="user-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalPoints">2,847</div>
+                        <div class="stat-label">Total Points</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="tasksCompleted">23</div>
+                        <div class="stat-label">Tasks Done</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="referrals">7</div>
+                        <div class="stat-label">Referrals</div>
+                    </div>
                 </div>
-                <h3 class="detail-title">Location</h3>
-                <p class="detail-content">
-                    Command Guest House<br>
-                    Gusau, Zamfara State
-                </p>
             </div>
+        </div>
 
-            <div class="detail-card">
-                <div class="detail-icon">
-                    <i class="fas fa-bullseye"></i>
+        <div class="dashboard-grid">
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Available Tasks -->
+                <div class="section-card">
+                    <div class="section-title">
+                        <div class="section-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        Available Tasks
+                    </div>
+                    
+                    <div class="tasks-grid">
+                        <!-- Facebook Task -->
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-platform">
+                                    <div class="platform-icon facebook">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                        </svg>
+                                    </div>
+                                    <span>Facebook</span>
+                                </div>
+                                <div class="task-points">+150 pts</div>
+                            </div>
+                            <div class="task-title">Like and Share Our Latest Post</div>
+                            <div class="task-description">Like our recent trading tips post and share it with your friends to earn points.</div>
+                            <div class="task-action">
+                                <a href="#" class="btn-primary" onclick="completeTask('facebook-like', 150)">
+                                    Complete Task
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 12l2 2 4-4"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="btn-secondary">View Post</a>
+                            </div>
+                        </div>
+
+                        <!-- Twitter Task -->
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-platform">
+                                    <div class="platform-icon twitter">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                        </svg>
+                                    </div>
+                                    <span>Twitter</span>
+                                </div>
+                                <div class="task-points">+200 pts</div>
+                            </div>
+                            <div class="task-title">Retweet and Follow</div>
+                            <div class="task-description">Follow our Twitter account and retweet our pinned tweet about the upcoming conference.</div>
+                            <div class="task-action">
+                                <a href="#" class="btn-primary" onclick="completeTask('twitter-follow', 200)">
+                                    Complete Task
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 12l2 2 4-4"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="btn-secondary">View Tweet</a>
+                            </div>
+                        </div>
+
+                        <!-- Instagram Task -->
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-platform">
+                                    <div class="platform-icon instagram">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                        </svg>
+                                    </div>
+                                    <span>Instagram</span>
+                                </div>
+                                <div class="task-points">+175 pts</div>
+                            </div>
+                            <div class="task-title">Story Mention Challenge</div>
+                            <div class="task-description">Post our conference announcement in your story and tag us to earn bonus points.</div>
+                            <div class="task-action">
+                                <a href="#" class="btn-primary" onclick="completeTask('instagram-story', 175)">
+                                    Complete Task
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 12l2 2 4-4"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="btn-secondary">Get Image</a>
+                            </div>
+                        </div>
+
+                        <!-- YouTube Task -->
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-platform">
+                                    <div class="platform-icon youtube">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                                    </div>
+                                    <span>YouTube</span>
+                                </div>
+                                <div class="task-points">+250 pts</div>
+                            </div>
+                            <div class="task-title">Subscribe & Like Video</div>
+                            <div class="task-description">Subscribe to our channel and like our latest trading tutorial video.</div>
+                            <div class="task-action">
+                                <a href="#" class="btn-primary" onclick="completeTask('youtube-subscribe', 250)">
+                                    Complete Task
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 12l2 2 4-4"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="btn-secondary">Watch Video</a>
+                            </div>
+                        </div>
+
+                        <!-- Telegram Task -->
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-platform">
+                                    <div class="platform-icon telegram">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                                        </svg>
+                                    </div>
+                                    <span>Telegram</span>
+                                </div>
+                                <div class="task-points">+100 pts</div>
+                            </div>
+                            <div class="task-title">Join Our Channel</div>
+                            <div class="task-description">Join our Telegram channel for exclusive trading signals and market updates.</div>
+                            <div class="task-action">
+                                <a href="#" class="btn-primary" onclick="completeTask('telegram-join', 100)">
+                                    Complete Task
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 12l2 2 4-4"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="btn-secondary">Join Channel</a>
+                            </div>
+                        </div>
+
+                        <!-- LinkedIn Task -->
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-platform">
+                                    <div class="platform-icon linkedin">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                        </svg>
+                                    </div>
+                                    <span>LinkedIn</span>
+                                </div>
+                                <div class="task-points">+125 pts</div>
+                            </div>
+                            <div class="task-title">Connect & Endorse</div>
+                            <div class="task-description">Connect with our company page and endorse our latest professional post.</div>
+                            <div class="task-action">
+                                <a href="#" class="btn-primary" onclick="completeTask('linkedin-connect', 125)">
+                                    Complete Task
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 12l2 2 4-4"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="btn-secondary">View Post</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="detail-title">Theme</h3>
-                <p class="detail-content">
-                    Zamfara Wealth Conference:<br>
-                    The Web3 & Forex Summer Takeover
-                </p>
             </div>
-        </div>
 
-       
-    </div>
-</section>
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Referral Section -->
+                <div class="referral-section">
+                    <div class="section-title">
+                        <div class="section-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        Referral Program
+                    </div>
+                    
+                    <div class="referral-stats">
+                        <div class="referral-stat">
+                            <div class="referral-stat-number">7</div>
+                            <div class="stat-label">Total Referrals</div>
+                        </div>
+                        <div class="referral-stat">
+                            <div class="referral-stat-number">1,050</div>
+                            <div class="stat-label">Bonus Points</div>
+                        </div>
+                    </div>
 
-  <section id="events" class="section">
-    <h2 class="section-title">Upcoming Events</h2>
-    <p class="section-subtitle">Join our exclusive events designed to help you connect with industry leaders, learn new skills, and discover trading opportunities.</p>
-    
-    
-    <div class="events-container" style="display: flex; justify-content: center;
-    align-items: center;">
-      <div class="event-card">
-        <div class="event-image">
-          <img src="./what-is-the-5-3-1-trading-strategy-in-forex.jpg" alt="NYC Trading Summit">
-          <div class="event-date">Jun 20th</div>
-        </div>
-        <div class="event-content">
-          <h3 class="event-title">Global Traders Conference</h3>
-          <div class="event-details">
-            <div class="event-detail">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Nigeria, Zamfara</span>
-            </div>
-            <div class="event-detail">
-              <i class="fas fa-clock"></i>
-              <span>9:00 AM - 6:00 PM</span>
-            </div>
-            <div class="event-detail">
-              <i class="fas fa-user-tie"></i>
-              <span>50+ Industry Speakers</span>
-            </div>
-          </div>
-          <a href="./test.html" class="event-button">Register Now</a>
-        </div>
-      </div>
-      
-      
-    </div>
-    
-    <div class="loading-animation">
-      <div class="loading-dot"></div>
-      <div class="loading-dot"></div>
-      <div class="loading-dot"></div>
-    </div>
-  </section>
+                    <div class="referral-link-container">
+                        <p style="margin-bottom: 1rem; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+                            Share your referral link and earn <strong>150 points</strong> for each friend who joins!
+                        </p>
+                        <div class="referral-link">
+                            <input type="text" value="https://gtc.com/ref/alex2024" readonly>
+                            <button class="copy-btn" onclick="copyReferralLink()">Copy</button>
+                        </div>
+                        <div class="task-action">
+                            <a href="#" class="btn-primary" style="width: 100%; justify-content: center;">
+                                Share Link
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                    <polyline points="16,6 12,2 8,6"/>
+                                    <line x1="12" y1="2" x2="12" y2="15"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-  <!-- Community Section -->
-  <section id="community" class="section community-section">
-    <div class="bg-shape bg-shape-1"></div>
-    <div class="bg-shape bg-shape-2"></div>
-    
-    <div class="community-container">
-      <h2 class="section-title">Our Community</h2>
-      <p class="section-subtitle">Join thousands of traders worldwide who are part of our growing community. Connect, collaborate, and grow together.</p>
-      
-      <div class="community-stats">
-        <div class="community-stat">
-          <div class="stat-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <div class="stat-number">15,000+</div>
-          <div class="stat-text">Community Members</div>
-        </div>
-        
-        <div class="community-stat">
-          <div class="stat-icon">
-            <i class="fas fa-globe-americas"></i>
-          </div>
-          <div class="stat-number">75+</div>
-          <div class="stat-text">Countries Represented</div>
-        </div>
-        
-        <div class="community-stat">
-          <div class="stat-icon">
-            <i class="fas fa-comments"></i>
-          </div>
-          <div class="stat-number">1,200+</div>
-          <div class="stat-text">Daily Conversations</div>
-        </div>
-        
-        <div class="community-stat">
-          <div class="stat-icon">
-            <i class="fas fa-handshake"></i>
-          </div>
-          <div class="stat-number">500+</div>
-          <div class="stat-text">Partnership Opportunities</div>
-        </div>
-      </div>
-      
-      <h3 class="section-title" style="font-size: 28px;">What Our Members Say</h3>
-      
-      <div class="testimonials">
-        <div class="testimonial">
-          <div class="testimonial-content">
-            <p>Joining GTC was a game-changer for my career. The connections I made and the knowledge I gained have been invaluable. I've found trading opportunities I would have never discovered on my own.</p>
-          </div>
-          <div class="testimonial-author">
-            <div class="author-image">
-              <img src="./what-is-the-5-3-1-trading-strategy-in-forex.jpg" alt="Sarah Johnson">
-            </div>
-            <div class="author-info">
-              <div class="author-name">Sarah Johnson</div>
-              <div class="author-role">Forex Trader, Nigeria</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="testimonial">
-          <div class="testimonial-content">
-            <p>The webinars and workshops offered through GTC are top-notch. I've implemented strategies I learned here that have significantly improved my trading performance and risk management.</p>
-          </div>
-          <div class="testimonial-author">
-            <div class="author-image">
-              <img src="./download (3).jpeg" alt="James Rodriguez">
-            </div>
-            <div class="author-info">
-              <div class="author-name">james abu</div>
-              <div class="author-role">Equity Trader, Nigeria</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="testimonial">
-          <div class="testimonial-content">
-            <p>As someone new to the industry, GTC provided me with mentorship and guidance that helped me navigate the complex world of trading. The community is supportive and generous with their expertise.</p>
-          </div>
-          <div class="testimonial-author">
-            <div class="author-image">
-              <img src="./download (2).jpeg" alt="Priya Mehta">
-            </div>
-            <div class="author-info">
-              <div class="author-name">Priya Mehta</div>
-              <div class="author-role">Crypto Trader,Nigeria</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="community-cta">
-        <!-- <a href="#" class="cta-button primary-button">Join Our Community</a> -->
-      </div>
-    </div>
-  </section>
+                <!-- Progress Section -->
+                <div class="section-card">
+                    <div class="section-title">
+                        <div class="section-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        Your Progress
+                    </div>
+                    
+                    <div class="progress-ring">
+                        <svg viewBox="0 0 120 120">
+                            <defs>
+                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="progress-bg" cx="60" cy="60" r="50"/>
+                            <circle class="progress-bar" cx="60" cy="60" r="50" 
+                                    stroke-dasharray="314.16" 
+                                    stroke-dashoffset="125.66"/>
+                        </svg>
+                        <div class="progress-text">
+                            <div class="progress-percentage">60%</div>
+                            <div class="progress-label">Next Level</div>
+                        </div>
+                    </div>
+                    
+                    <p style="text-align: center; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+                        You need <strong>1,153 more points</strong> to reach the next level and unlock exclusive rewards!
+                    </p>
+                </div>
 
-  <!-- Jobs Section -->
- 
-      <!-- Footer Section -->
-<footer class="footer">
+                <!-- Leaderboard -->
+                <div class="leaderboard">
+                    <div class="section-title">
+                        <div class="section-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                                <path d="M4 22h16"/>
+                                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                                <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>
+                            </svg>
+                        </div>
+                        Top Performers
+                    </div>
+                    
+                    <div class="leaderboard-item">
+                        <div class="rank">1</div>
+                        <div class="user-info">
+                            <div class="username">CryptoKing</div>
+                            <div class="user-points">5,247 points</div>
+                        </div>
+                    </div>
+                    
+                    <div class="leaderboard-item">
+                        <div class="rank">2</div>
+                        <div class="user-info">
+                            <div class="username">TradeMaster</div>
+                            <div class="user-points">4,891 points</div>
+                        </div>
+                    </div>
+                    
+                    <div class="leaderboard-item">
+                        <div class="rank">3</div>
+                        <div class="user-info">
+                            <div class="username">BlockchainPro</div>
+                            <div class="user-points">3,456 points</div>
+                        </div>
+                    </div>
+                    
+                    <div class="leaderboard-item" style="background: rgba(102, 126, 234, 0.1); border-color: rgba(102, 126, 234, 0.3);">
+                        <div class="rank">4</div>
+                        <div class="user-info">
+                            <div class="username">Alex (You)</div>
+                            <div class="user-points">2,847 points</div>
+                        </div>
+                    </div>
+                    
+                    <div class="leaderboard-item">
+                        <div class="rank">5</div>
+                        <div class="user-info">
+                            <div class="username">DigitalNomad</div>
+                            <div class="user-points">2,234 points</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <span id="notificationText">Task completed successfully!</span>
+    </div>
+
+    <script>
+        // Task completion functionality
+        function completeTask(taskId, points) {
+            // Update total points
+            const totalPointsElement = document.getElementById('totalPoints');
+            const currentPoints = parseInt(totalPointsElement.textContent.replace(',', ''));
+            const newPoints = currentPoints + points;
+            totalPointsElement.textContent = newPoints.toLocaleString();
+            
+            // Update tasks completed
+            const tasksCompletedElement = document.getElementById('tasksCompleted');
+            const currentTasks = parseInt(tasksCompletedElement.textContent);
+            tasksCompletedElement.textContent = currentTasks + 1;
+            
+            // Show notification
+            showNotification(`Task completed! +${points} points earned`);
+            
+            // Disable the task button
+            event.target.style.opacity = '0.5';
+            event.target.style.pointerEvents = 'none';
+            event.target.innerHTML = `
+                Completed
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                </svg>
+            `;
+        }
+
+        // Copy referral link functionality
+        function copyReferralLink() {
+            const referralInput = document.querySelector('.referral-link input');
+            referralInput.select();
+            referralInput.setSelectionRange(0, 99999);
+            
+            try {
+                document.execCommand('copy');
+                showNotification('Referral link copied to clipboard!');
+            } catch (err) {
+                console.error('Failed to copy referral link:', err);
+                showNotification('Failed to copy link. Please try again.');
+            }
+        }
+
+        // Show notification functionality
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            
+            notificationText.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Animate progress ring on load
+        window.addEventListener('load', () => {
+            const progressBar = document.querySelector('.progress-bar');
+            const targetOffset = 125.66; // 60% progress
+            progressBar.style.strokeDashoffset = '314.16';
+            
+            setTimeout(() => {
+                progressBar.style.strokeDashoffset = targetOffset;
+            }, 500);
+        });
+
+        // Add hover effects to task cards
+        document.querySelectorAll('.task-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Smooth scroll for any anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+    <footer class="footer">
   <div class="footer-container">
     <div class="footer-top">
       <div class="footer-logo">
@@ -2050,6 +2303,5 @@ body{
       }
     }
   </style>
-  <script src="./index.js"></script>  
 </body>
 </html>
