@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTC - Login & Registration</title>
+    <title>Social Media Tasks - GTC</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./task.css">
     <style>
         * {
             margin: 0;
@@ -14,7 +15,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            /* background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
             min-height: 100vh;
         }
 
@@ -38,7 +39,7 @@
             height: 70px;
         }
 
-        .llogo {
+        .logo {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -46,14 +47,14 @@
             font-size: 24px;
             color: white;
             text-decoration: none;
-            /* transition: all 0.3s ease; */
+            transition: all 0.3s ease;
         }
 
-        .llogo:hover {
+        .logo:hover {
             transform: scale(1.05);
         }
 
-        .llogo-icon {
+        .logo-icon {
             width: 40px;
             height: 40px;
             background: linear-gradient(45deg, #20E2D7, #F9FEA5);
@@ -274,10 +275,10 @@
     </style>
 </head>
 <body>
-  <nav class="navbar">
+    <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="llogo">
-                <div class="llogo-icon">GTC</div>
+            <a href="#" class="logo">
+                <div class="logo-icon">GTC</div>
                 <span>Global Traders</span>
             </a>
             
@@ -339,749 +340,383 @@
             </div>
         </div>
     </nav>
-    <div class="background-elements">
-        <div class="floating-shape shape-1"></div>
-        <div class="floating-shape shape-2"></div>
-        <div class="floating-shape shape-3"></div>
-    </div>
-
     <div class="container">
-        <div class="login-container">
-            <div class="brand-section">
-                <div class="logo">GTC</div>
-                <p class="tagline">Global Trading Company</p>
-                <ul class="features">
-                    <li class="feature">
-                        <div class="feature-icon"><i class="fas fa-rocket"></i></div>
-                        <span>Advanced Trading Platform</span>
-                    </li>
-                    <li class="feature">
-                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                        <span>Secure Transactions</span>
-                    </li>
-                    <li class="feature">
-                        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                        <span>Real-time Analytics</span>
-                    </li>
-                    <li class="feature">
-                        <div class="feature-icon"><i class="fas fa-gem"></i></div>
-                        <span>Premium Support</span>
-                    </li>
-                </ul>
+        <div class="header">
+            <div class="header-left">
+                <h1><i class="fas fa-tasks" style="margin-right: 0.5rem;"></i>Social Media Tasks</h1>
+                <p>Complete tasks to earn rewards and boost your community engagement</p>
             </div>
+        </div>
 
-            <div class="form-section">
-                <div class="form-header">
-                    <div class="tabs">
-                        <button class="tab active" onclick="switchTab('login')">Login</button>
-                        <button class="tab" onclick="switchTab('register')">Register</button>
+        <div class="progress-section">
+            <div class="progress-card">
+                <div class="progress-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="progress-number" id="totalPoints">2,450</div>
+                <div class="progress-label">Total Points</div>
+            </div>
+            
+            <div class="progress-card">
+                <div class="progress-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="progress-number" id="completedTasks">12</div>
+                <div class="progress-label">Completed Tasks</div>
+            </div>
+            
+            <div class="progress-card">
+                <div class="progress-icon">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <div class="progress-number" id="streak">7</div>
+                <div class="progress-label">Day Streak</div>
+            </div>
+            
+            <div class="progress-card">
+                <div class="progress-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <div class="progress-number" id="rank">#3</div>
+                <div class="progress-label">Global Rank</div>
+            </div>
+        </div>
+
+        <div class="tasks-grid">
+            <!-- Twitter Tasks -->
+            <div class="task-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <div class="category-title">Twitter Tasks</div>
+                </div>
+                
+                <div class="task-item">
+                    <div class="task-header">
+                        <div class="task-info">
+                            <h3>Follow @GlobalTradersConf</h3>
+                            <p>Follow our official Twitter account to stay updated with the latest trading insights and conference announcements.</p>
+                        </div>
+                        <div class="task-reward">
+                            <i class="fas fa-coins"></i>
+                            50 pts
+                        </div>
+                    </div>
+                    <div class="social-platforms">
+                        <span class="platform-tag">Twitter</span>
+                        <span class="platform-tag">Easy</span>
+                    </div>
+                    <div class="task-actions">
+                        <button class="task-btn btn-primary" onclick="completeTask(this, 50)">
+                            <i class="fas fa-external-link-alt"></i>
+                            Follow Now
+                        </button>
                     </div>
                 </div>
 
-                <div class="form-content">
-                    <!-- Login Form -->
-                    <div id="login-panel" class="form-panel active">
-                        <form id="login-form">
-                            <div class="form-group">
-                                <label for="login-email">Email Address</label>
-                                <input type="email" id="login-email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="login-password">Password</label>
-                                <input type="password" id="login-password" name="password" required>
-                            </div>
-                            <button type="submit" class="btn">Sign In</button>
-                        </form>
-
-                        <div class="divider">
-                            <span>or continue with</span>
+                <div class="task-item">
+                    <div class="task-header">
+                        <div class="task-info">
+                            <h3>Retweet Conference Announcement</h3>
+                            <p>Help spread the word about our upcoming Global Traders Conference by retweeting our pinned announcement.</p>
                         </div>
-
-                        <div class="social-login">
-                            <button class="social-btn">
-                                <i class="fab fa-google"></i> Google
-                            </button>
-                            <button class="social-btn">
-                                <i class="fab fa-facebook-f"></i> Facebook
-                            </button>
-                        </div>
-
-                        <a href="#" class="forgot-password">Forgot your password?</a>
-                    </div>
-
-                    <!-- Register Form -->
-                    <div id="register-panel" class="form-panel">
-                        <form id="register-form">
-                            <div class="form-group">
-                                <label for="register-name">Full Name</label>
-                                <input type="text" id="register-name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="register-email">Email Address</label>
-                                <input type="email" id="register-email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="register-password">Password</label>
-                                <input type="password" id="register-password" name="password" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="register-confirm">Confirm Password</label>
-                                <input type="password" id="register-confirm" name="confirm" required>
-                            </div>
-                            <button type="submit" class="btn">Create Account</button>
-                        </form>
-
-                        <div class="divider">
-                            <span>or register with</span>
-                        </div>
-
-                        <div class="social-login">
-                            <button class="social-btn">
-                                <i class="fab fa-google"></i> Google
-                            </button>
-                            <button class="social-btn">
-                                <i class="fab fa-facebook-f"></i> Facebook
-                            </button>
+                        <div class="task-reward">
+                            <i class="fas fa-coins"></i>
+                            75 pts
                         </div>
                     </div>
+                    <div class="social-platforms">
+                        <span class="platform-tag">Twitter</span>
+                        <span class="platform-tag">Medium</span>
+                    </div>
+                    <div class="task-actions">
+                        <button class="task-btn btn-primary" onclick="completeTask(this, 75)">
+                            <i class="fas fa-retweet"></i>
+                            Retweet
+                        </button>
+                    </div>
+                </div>
+
+                <div class="task-item completed">
+                    <div class="task-header">
+                        <div class="task-info">
+                            <h3>Share Trading Tip</h3>
+                            <p>Tweet your best trading tip using #GTC2025 hashtag and tag 3 fellow traders.</p>
+                        </div>
+                        <div class="task-reward">
+                            <i class="fas fa-coins"></i>
+                            100 pts
+                        </div>
+                    </div>
+                    <div class="social-platforms">
+                        <span class="platform-tag">Twitter</span>
+                        <span class="platform-tag">Hard</span>
+                    </div>
+                    <div class="task-actions">
+                        <button class="task-btn btn-success" disabled>
+                            <i class="fas fa-check"></i>
+                            Completed
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LinkedIn Tasks -->
+            <div class="task-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="category-title">LinkedIn Tasks</div>
+                </div>
+                
+                <div class="task-item">
+                    <div class="task-header">
+                        <div class="task-info">
+                            <h3>Connect with GTC Speakers</h3>
+                            <p>Connect with at least 3 featured speakers from our conference lineup on LinkedIn.</p>
+                        </div>
+                        <div class="task-reward">
+                            <i class="fas fa-coins"></i>
+                            120 pts
+                        </div>
+                    </div>
+                    <div class="social-platforms">
+                        <span class="platform-tag">LinkedIn</span>
+                        <span class="platform-tag">Medium</span>
+                    </div>
+                    <div class="task-progress">
+                        <div class="progress-fill" style="width: 33%"></div>
+                    </div>
+                    <div class="task-actions">
+                        <button class="task-btn btn-primary" onclick="updateProgress(this)">
+                            <i class="fas fa-user-plus"></i>
+                            Connect (1/3)
+                        </button>
+                    </div>
+                </div>
+
+                <div class="task-item">
+                    <div class="task-header">
+                        <div class="task-info">
+                            <h3>Write Conference Review</h3>
+                            <p>Write a detailed LinkedIn post about your experience at the Global Traders Conference.</p>
+                        </div>
+                        <div class="task-reward">
+                            <i class="fas fa-coins"></i>
+                            200 pts
+                        </div>
+                    </div>
+                    <div class="social-platforms">
+                        <span class="platform-tag">LinkedIn</span>
+                        <span class="platform-tag">Hard</span>
+                    </div>
+                    <div class="task-actions">
+                        <button class="task-btn btn-outline" onclick="completeTask(this, 200)">
+                            <i class="fas fa-pen"></i>
+                            Write Post
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instagram Tasks -->
+            <div class="task-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="category-title">Instagram Tasks</div>
+                </div>
+                
+                <div class="task-item">
+                    <div class="task-header">
+                        <div class="task-info">
+                            <h3>Share Conference Story</h3>
+                            <p>Post an Instagram story featuring your favorite moment from the conference with our official hashtag.</p>
+                        </div>
+                        <div class="task-reward">
+                            <i class="fas fa-coins"></i>
+                            80 pts
+                        </div>
+                    </div>
+                    <div class="social-platforms">
+                        <span class="platform-tag">Instagram</span>
+                        <span class="platform-tag">Easy</span>
+                    </div>
+                    <div class="task-actions">
+                        <button class="task-btn btn-primary" onclick="completeTask(this, 80)">
+                            <i class="fas fa-camera"></i>
+                            Share Story
+                        </button>
+                    </div>
+                </div>
+
+                <div class="task-item">
+                    <div class="task-header">
+                        <div class="task-info">
+                            <h3>Tag Conference Location</h3>
+                            <p>Post a photo from the conference venue and tag the location to help promote future events.</p>
+                        </div>
+                        <div class="task-reward">
+                            <i class="fas fa-coins"></i>
+                            90 pts
+                        </div>
+                    </div>
+                    <div class="social-platforms">
+                        <span class="platform-tag">Instagram</span>
+                        <span class="platform-tag">Medium</span>
+                    </div>
+                    <div class="task-actions">
+                        <button class="task-btn btn-primary" onclick="completeTask(this, 90)">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Post & Tag
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="leaderboard">
+            <h2><i class="fas fa-crown" style="color: #f59e0b;"></i>Top Performers</h2>
+            <div class="leaderboard-item">
+                <div class="rank gold">1</div>
+                <div style="flex: 1;">
+                    <strong>Sarah Chen</strong>
+                    <div style="color: #94a3b8; font-size: 0.9rem;">3,850 points • 25 tasks completed</div>
+                </div>
+                <div style="color: #f59e0b; font-weight: 600;">
+                    <i class="fas fa-trophy"></i>
+                </div>
+            </div>
+            
+            <div class="leaderboard-item">
+                <div class="rank silver">2</div>
+                <div style="flex: 1;">
+                    <strong>Marcus Rodriguez</strong>
+                    <div style="color: #94a3b8; font-size: 0.9rem;">3,200 points • 22 tasks completed</div>
+                </div>
+                <div style="color: #6b7280; font-weight: 600;">
+                    <i class="fas fa-medal"></i>
+                </div>
+            </div>
+            
+            <div class="leaderboard-item">
+                <div class="rank bronze">3</div>
+                <div style="flex: 1;">
+                    <strong>You</strong>
+                    <div style="color: #94a3b8; font-size: 0.9rem;">2,450 points • 12 tasks completed</div>
+                </div>
+                <div style="color: #0ea5e9; font-weight: 600;">
+                    <i class="fas fa-user"></i>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="floating-reward" id="rewardNotification">
+        <i class="fas fa-star"></i>
+        <span id="rewardText">+50 Points Earned!</span>
+    </div>
+
     <script>
-        // Tab switching functionality
-        function switchTab(tab) {
-            // Update tab buttons
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
+        let totalPoints = 2450;
+        let completedTasks = 12;
+        let currentStreak = 7;
+
+        function completeTask(button, points) {
+            // Update button state
+            button.innerHTML = '<i class="fas fa-check"></i> Completed';
+            button.className = 'task-btn btn-success';
+            button.disabled = true;
             
-            // Update form panels
-            document.querySelectorAll('.form-panel').forEach(panel => {
-                panel.classList.remove('active');
-            });
-            document.getElementById(tab + '-panel').classList.add('active');
+            // Add completed class to task item
+            const taskItem = button.closest('.task-item');
+            taskItem.classList.add('completed');
+            
+            // Update stats
+            totalPoints += points;
+            completedTasks += 1;
+            currentStreak += 1;
+            
+            // Update display
+            document.getElementById('totalPoints').textContent = totalPoints.toLocaleString();
+            document.getElementById('completedTasks').textContent = completedTasks;
+            document.getElementById('streak').textContent = currentStreak;
+            
+            // Show reward notification
+            showRewardNotification(points);
         }
 
-        // Form submission handlers
-        document.getElementById('login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
+        function updateProgress(button) {
+            const taskItem = button.closest('.task-item');
+            const progressFill = taskItem.querySelector('.progress-fill');
+            const currentWidth = parseInt(progressFill.style.width) || 33;
+            const newWidth = Math.min(currentWidth + 33, 100);
             
-            // Here you would typically send the data to your server
-            console.log('Login attempt:', { email, password });
-            alert('Login functionality would be implemented here!');
-        });
-
-        document.getElementById('register-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('register-name').value;
-            const email = document.getElementById('register-email').value;
-            const password = document.getElementById('register-password').value;
-            const confirm = document.getElementById('register-confirm').value;
+            progressFill.style.width = newWidth + '%';
             
-            if (password !== confirm) {
-                alert('Passwords do not match!');
-                return;
-            }
+            const currentCount = Math.floor(newWidth / 33);
+            button.innerHTML = `<i class="fas fa-user-plus"></i> Connect (${currentCount}/3)`;
             
-            // Here you would typically send the data to your server
-            console.log('Registration attempt:', { name, email, password });
-            alert('Registration functionality would be implemented here!');
-        });
-
-        // Ripple effect
-        document.addEventListener('click', function(e) {
-            if (e.target.matches('.btn, .social-btn, .tab')) {
-                const button = e.target;
-                const ripple = document.createElement('span');
-                const rect = button.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.classList.add('ripple');
-                
-                button.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            }
-        });
-
-        // Add CSS for ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple-animation {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-            
-            .btn, .social-btn, .tab {
-                position: relative;
-                overflow: hidden;
-            }
-            
-            /* Floating animation for background elements */
-            @keyframes float {
-                0%, 100% { transform: translateY(0px) rotate(0deg); }
-                33% { transform: translateY(-10px) rotate(1deg); }
-                66% { transform: translateY(5px) rotate(-1deg); }
-            }
-            
-            /* Pulse animation for logo */
-            @keyframes pulse {
-                0%, 100% { transform: scale(1); }
-                50% { transform: scale(1.05); }
-            }
-            
-            .logo {
-                animation: pulse 3s ease-in-out infinite;
-            }
-            
-            /* Slide in animations */
-            @keyframes slideInLeft {
-                from { transform: translateX(-100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            
-            @keyframes slideInRight {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            
-            .brand-section {
-                animation: slideInLeft 0.8s ease-out;
-            }
-            
-            .form-section {
-                animation: slideInRight 0.8s ease-out;
-            }
-            
-            /* Fade in animation for features */
-            @keyframes fadeInUp {
-                from { transform: translateY(20px); opacity: 0; }
-                to { transform: translateY(0); opacity: 1; }
-            }
-            
-            .feature {
-                animation: fadeInUp 0.6s ease-out forwards;
-            }
-            
-            .feature:nth-child(1) { animation-delay: 0.2s; }
-            .feature:nth-child(2) { animation-delay: 0.4s; }
-            .feature:nth-child(3) { animation-delay: 0.6s; }
-            .feature:nth-child(4) { animation-delay: 0.8s; }
-        `;
-        document.head.appendChild(style);
-
-        // Enhanced form validation
-        function validateEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-
-        function validatePassword(password) {
-            // At least 8 characters, one uppercase, one lowercase, one number
-            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{8,}$/;
-            return passwordRegex.test(password);
-        }
-
-        // Real-time validation feedback
-        document.addEventListener('DOMContentLoaded', function() {
-            const inputs = document.querySelectorAll('input');
-            
-            inputs.forEach(input => {
-                input.addEventListener('blur', function() {
-                    validateInput(this);
-                });
-                
-                input.addEventListener('input', function() {
-                    clearValidationError(this);
-                });
-            });
-        });
-
-        function validateInput(input) {
-            const value = input.value.trim();
-            const inputContainer = input.closest('.form-group');
-            
-            // Remove existing error styling
-            input.classList.remove('error');
-            const existingError = inputContainer.querySelector('.error-message');
-            if (existingError) {
-                existingError.remove();
-            }
-            
-            let errorMessage = '';
-            
-            if (input.type === 'email' && value && !validateEmail(value)) {
-                errorMessage = 'Please enter a valid email address';
-            } else if (input.type === 'password' && value && input.id.includes('register') && !validatePassword(value)) {
-                errorMessage = 'Password must be at least 8 characters with uppercase, lowercase, and number';
-            } else if (input.id === 'register-confirm' && value) {
-                const password = document.getElementById('register-password').value;
-                if (value !== password) {
-                    errorMessage = 'Passwords do not match';
-                }
-            }
-            
-            if (errorMessage) {
-                input.classList.add('error');
-                const errorDiv = document.createElement('div');
-                errorDiv.className = 'error-message';
-                errorDiv.textContent = errorMessage;
-                inputContainer.appendChild(errorDiv);
+            if (newWidth >= 100) {
+                completeTask(button, 120);
             }
         }
 
-        function clearValidationError(input) {
-            input.classList.remove('error');
-            const inputContainer = input.closest('.form-group');
-            const existingError = inputContainer.querySelector('.error-message');
-            if (existingError) {
-                existingError.remove();
-            }
-        }
-
-        // Add error styling to CSS
-        const errorStyle = document.createElement('style');
-        errorStyle.textContent = `
-            .form-group input.error {
-                border-color: #ef4444 !important;
-                background: rgba(239, 68, 68, 0.1) !important;
-            }
+        function showRewardNotification(points) {
+            const notification = document.getElementById('rewardNotification');
+            const rewardText = document.getElementById('rewardText');
             
-            .error-message {
-                color: #ef4444;
-                font-size: 0.85rem;
-                margin-top: 8px;
-                display: flex;
-                align-items: center;
-                gap: 6px;
-            }
+            rewardText.textContent = `+${points} Points Earned!`;
+            notification.classList.add('show');
             
-            .error-message::before {
-                content: "\f071";
-                font-family: "Font Awesome 5 Free";
-                font-weight: 900;
-                font-size: 0.9rem;
-            }
-        `;
-        document.head.appendChild(errorStyle);
-
-        // Enhanced keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab') {
-                document.body.classList.add('keyboard-nav');
-            }
-        });
-
-        document.addEventListener('mousedown', function() {
-            document.body.classList.remove('keyboard-nav');
-        });
-
-        // Add focus styles for keyboard navigation
-        const keyboardStyle = document.createElement('style');
-        keyboardStyle.textContent = `
-            .keyboard-nav .tab:focus,
-            .keyboard-nav .btn:focus,
-            .keyboard-nav .social-btn:focus {
-                outline: 3px solid rgba(255, 255, 255, 0.8);
-                outline-offset: 2px;
-            }
-            
-            .keyboard-nav input:focus {
-                outline: 3px solid #0e4d94;
-                outline-offset: 2px;
-            }
-        `;
-        document.head.appendChild(keyboardStyle);
-
-        // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add some initial animations
             setTimeout(() => {
-                document.body.classList.add('loaded');
-            }, 100);
+                notification.classList.remove('show');
+            }, 2000);
+        }
+
+        // Add smooth animations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const taskItems = document.querySelectorAll('.task-item');
+            const progressCards = document.querySelectorAll('.progress-card');
+            
+            // Animate progress cards
+            progressCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+            
+            // Animate task items
+            taskItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
+                setTimeout(() => {
+                    item.style.transition = 'all 0.6s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, 500 + index * 100);
+            });
         });
 
-        // Add loaded state styles
-        const loadedStyle = document.createElement('style');
-        loadedStyle.textContent = `
-            body:not(.loaded) .container {
-                opacity: 0;
-                transform: scale(0.95);
-            }
+        // Add hover effects for task items
+        document.querySelectorAll('.task-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(5px) scale(1.02)';
+            });
             
-            .container {
-                transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            
-            body.loaded .container {
-                opacity: 1;
-                transform: scale(1);
-            }
-        `;
-        document.head.appendChild(loadedStyle);
-
-        console.log('GTC Login/Registration System Initialized Successfully! 🚀');
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0) scale(1)';
+            });
+        });
     </script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: auto;
-            min-height: 100vh;
-            overflow-x: hidden;
-            overflow-y: auto;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-        }
-
-        .background-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .floating-shape {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape-1 {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape-2 {
-            width: 120px;
-            height: 120px;
-            top: 60%;
-            right: 15%;
-            animation-delay: 2s;
-        }
-
-        .shape-3 {
-            width: 60px;
-            height: 60px;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        .container {
-            position: relative;
-            z-index: 2;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .login-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            width: 100%;
-            max-width: 1000px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 600px;
-        }
-
-        .brand-section {
-            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-            color: white;
-            padding: 60px 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .brand-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-
-        .logo {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 2;
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .features {
-            list-style: none;
-            position: relative;
-            z-index: 2;
-        }
-
-        .feature {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            opacity: 0;
-        }
-
-        .feature-icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 15px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        .form-section {
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .tabs {
-            display: flex;
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 4px;
-            margin-bottom: 30px;
-        }
-
-        .tab {
-            flex: 1;
-            padding: 12px 20px;
-            text-align: center;
-            border: none;
-            background: transparent;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .tab.active {
-            background: white;
-            color: #4a90e2;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-content {
-            position: relative;
-        }
-
-        .form-panel {
-            display: none;
-        }
-
-        .form-panel.active {
-            display: block;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e1e5e9;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #4a90e2;
-            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
-        }
-
-        .btn {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(74, 144, 226, 0.3);
-        }
-
-        .divider {
-            text-align: center;
-            margin: 20px 0;
-            position: relative;
-            color: #666;
-        }
-
-        .divider::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: #e1e5e9;
-        }
-
-        .divider span {
-            background: white;
-            padding: 0 20px;
-            position: relative;
-        }
-
-        .social-login {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .social-btn {
-            flex: 1;
-            padding: 12px;
-            border: 2px solid #e1e5e9;
-            background: white;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-weight: 600;
-        }
-
-        .social-btn:hover {
-            border-color: #4a90e2;
-            transform: translateY(-2px);
-        }
-
-        .forgot-password {
-            text-align: center;
-            color: #4a90e2;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .forgot-password:hover {
-            text-decoration: underline;
-        }
-
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.6);
-            transform: scale(0);
-            animation: ripple-animation 0.6s linear;
-            pointer-events: none;
-        }
-
-        @media (max-width: 768px) {
-            .login-container {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-            }
-
-            .brand-section {
-                padding: 40px 20px;
-            }
-
-            .form-section {
-                padding: 30px 20px;
-            }
-
-            .logo {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 10px;
-                align-items: flex-start;
-                min-height: auto;
-                padding-top: 20px;
-                padding-bottom: 20px;
-            }
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-    </style>
+    <script src="./index.js"></script>
     <footer class="footer">
   <div class="footer-container">
     <div class="footer-top">
@@ -2247,6 +1882,5 @@ body{
       }
     }
   </style>
-  <script src="./index.js"></script>
 </body>
 </html>

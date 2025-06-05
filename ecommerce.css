@@ -1,4 +1,4 @@
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -10,10 +10,14 @@
             min-height: 100vh;
         }
 
+        /* =================
+           MAIN CONTENT STYLES 
+           ================= */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            margin-top: 100px; /* Account for fixed navbar */
         }
 
         .header {
@@ -180,37 +184,9 @@
             box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
         }
 
-        .whatsapp-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        .footer {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .footer h3 {
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .footer p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .contact-info {
-            margin-top: 20px;
-            padding: 20px;
-            background: rgba(0, 119, 190, 0.1);
-            border-radius: 15px;
-        }
-
+        /* =================
+           RESPONSIVE DESIGN 
+           ================= */
         @media (max-width: 768px) {
             .brand-name {
                 font-size: 2rem;

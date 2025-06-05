@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTC - Login & Registration</title>
+    <title>GTC Referral Program - Global Traders Conference</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./referral.css">
     <style>
         * {
             margin: 0;
@@ -14,7 +15,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            /* background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
             min-height: 100vh;
         }
 
@@ -46,7 +47,7 @@
             font-size: 24px;
             color: white;
             text-decoration: none;
-            /* transition: all 0.3s ease; */
+            transition: all 0.3s ease;
         }
 
         .llogo:hover {
@@ -165,11 +166,11 @@
                 height: 60px;
             }
 
-            .logo {
+            .llogo {
                 font-size: 20px;
             }
 
-            .logo-icon {
+            .llogo-icon {
                 width: 35px;
                 height: 35px;
             }
@@ -224,12 +225,12 @@
                 padding: 0 10px;
             }
 
-            .logo {
+            .llogo {
                 font-size: 18px;
                 gap: 8px;
             }
 
-            .logo-icon {
+            .llogo-icon {
                 width: 30px;
                 height: 30px;
                 font-size: 12px;
@@ -274,7 +275,7 @@
     </style>
 </head>
 <body>
-  <nav class="navbar">
+    <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="llogo">
                 <div class="llogo-icon">GTC</div>
@@ -339,749 +340,299 @@
             </div>
         </div>
     </nav>
-    <div class="background-elements">
-        <div class="floating-shape shape-1"></div>
-        <div class="floating-shape shape-2"></div>
-        <div class="floating-shape shape-3"></div>
+    <div class="floating-elements">
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
     </div>
 
     <div class="container">
-        <div class="login-container">
-            <div class="brand-section">
+        <div class="header">
+            <div class="logo-section">
                 <div class="logo">GTC</div>
-                <p class="tagline">Global Trading Company</p>
-                <ul class="features">
-                    <li class="feature">
-                        <div class="feature-icon"><i class="fas fa-rocket"></i></div>
-                        <span>Advanced Trading Platform</span>
-                    </li>
-                    <li class="feature">
-                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                        <span>Secure Transactions</span>
-                    </li>
-                    <li class="feature">
-                        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                        <span>Real-time Analytics</span>
-                    </li>
-                    <li class="feature">
-                        <div class="feature-icon"><i class="fas fa-gem"></i></div>
-                        <span>Premium Support</span>
-                    </li>
-                </ul>
+                <h1 class="main-title">Global Traders Conference</h1>
+                <p class="subtitle">@GTC225 • Official Community Hub</p>
+                <p class="description">Connecting traders. Building leaders. Creating opportunities. Jobs, updates, and exclusive insights await here.</p>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-number" style="color: white;">141</div>
+                <div class="stat-label" style="color: white;">Posts</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number"style="color: white;">10K+</div>
+                <div class="stat-label" style="color: white;">Traders</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" style="color: white;">50+</div>
+                <div class="stat-label" style="color: white;">Countries</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" style="color: white;">24/7</div>
+                <div class="stat-label" style="color: white;">Support</div>
+            </div>
+        </div>
+
+        <div class="referral-section">
+            <div class="referral-card">
+                <div class="card-icon"><i class="fas fa-rocket"></i></div>
+                <h3 class="card-title">Refer & Earn</h3>
+                <p class="card-text">Invite fellow traders to join our exclusive community and earn rewards for every successful referral. Help us grow the global trading network.</p>
+                <button class="cta-button" onclick="scrollToReferralLink()"><i class="fas fa-share-alt"></i> Get Referral Link</button>
             </div>
 
-            <div class="form-section">
-                <div class="form-header">
-                    <div class="tabs">
-                        <button class="tab active" onclick="switchTab('login')">Login</button>
-                        <button class="tab" onclick="switchTab('register')">Register</button>
-                    </div>
-                </div>
+            <div class="referral-card">
+                <div class="card-icon"><i class="fas fa-briefcase"></i></div>
+                <h3 class="card-title">Exclusive Opportunities</h3>
+                <p class="card-text">Get access to premium job listings, trading opportunities, and insider updates from the global trading community.</p>
+                <button class="cta-button" onclick="joinCommunity()"><i class="fas fa-users"></i> Join Community</button>
+            </div>
 
-                <div class="form-content">
-                    <!-- Login Form -->
-                    <div id="login-panel" class="form-panel active">
-                        <form id="login-form">
-                            <div class="form-group">
-                                <label for="login-email">Email Address</label>
-                                <input type="email" id="login-email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="login-password">Password</label>
-                                <input type="password" id="login-password" name="password" required>
-                            </div>
-                            <button type="submit" class="btn">Sign In</button>
-                        </form>
+            <div class="referral-card">
+                <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                <h3 class="card-title">Market Insights</h3>
+                <p class="card-text">Stay ahead with real-time market analysis, trading strategies, and expert insights from industry leaders worldwide.</p>
+                <button class="cta-button" onclick="getInsights()"><i class="fas fa-analytics"></i> Get Insights</button>
+            </div>
 
-                        <div class="divider">
-                            <span>or continue with</span>
-                        </div>
+            <div class="referral-card">
+                <div class="card-icon"><i class="fas fa-handshake"></i></div>
+                <h3 class="card-title">Network & Connect</h3>
+                <p class="card-text">Build meaningful connections with traders, mentors, and industry experts. Expand your professional network globally.</p>
+                <button class="cta-button" onclick="startNetworking()"><i class="fas fa-network-wired"></i> Start Networking</button>
+            </div>
+        </div>
 
-                        <div class="social-login">
-                            <button class="social-btn">
-                                <i class="fab fa-google"></i> Google
-                            </button>
-                            <button class="social-btn">
-                                <i class="fab fa-facebook-f"></i> Facebook
-                            </button>
-                        </div>
+        <div class="referral-link-section" id="referralSection">
+            <h2 class="referral-link-title">
+                <i class="fas fa-link"></i>
+                Your Referral Link
+            </h2>
+            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 25px; font-size: 1.1em;">
+                Share this link with traders worldwide and earn rewards for every successful referral
+            </p>
+            
+            <div class="link-container">
+                <input type="text" class="referral-input" id="referralLink" value="https://gtc.traders/ref/GTC225" readonly>
+                <button class="copy-btn" onclick="copyReferralLink()" id="copyBtn">
+                    <i class="fas fa-copy" id="copyIcon"></i>
+                    <span id="copyText">Copy</span>
+                </button>
+            </div>
 
-                        <a href="#" class="forgot-password">Forgot your password?</a>
-                    </div>
-
-                    <!-- Register Form -->
-                    <div id="register-panel" class="form-panel">
-                        <form id="register-form">
-                            <div class="form-group">
-                                <label for="register-name">Full Name</label>
-                                <input type="text" id="register-name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="register-email">Email Address</label>
-                                <input type="email" id="register-email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="register-password">Password</label>
-                                <input type="password" id="register-password" name="password" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="register-confirm">Confirm Password</label>
-                                <input type="password" id="register-confirm" name="confirm" required>
-                            </div>
-                            <button type="submit" class="btn">Create Account</button>
-                        </form>
-
-                        <div class="divider">
-                            <span>or register with</span>
-                        </div>
-
-                        <div class="social-login">
-                            <button class="social-btn">
-                                <i class="fab fa-google"></i> Google
-                            </button>
-                            <button class="social-btn">
-                                <i class="fab fa-facebook-f"></i> Facebook
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            <div class="quick-share-buttons">
+                <button class="share-btn twitter" onclick="shareToTwitter()">
+                    <i class="fab fa-twitter"></i> Twitter
+                </button>
+                <button class="share-btn linkedin" onclick="shareToLinkedIn()">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </button>
+                <button class="share-btn whatsapp" onclick="shareToWhatsApp()">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </button>
+                <button class="share-btn telegram" onclick="shareToTelegram()">
+                    <i class="fab fa-telegram"></i> Telegram
+                </button>
             </div>
         </div>
     </div>
 
     <script>
-        // Tab switching functionality
-        function switchTab(tab) {
-            // Update tab buttons
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Update form panels
-            document.querySelectorAll('.form-panel').forEach(panel => {
-                panel.classList.remove('active');
-            });
-            document.getElementById(tab + '-panel').classList.add('active');
+        // Generate unique referral link for user
+        function generateReferralLink() {
+            const baseUrl = "https://gtc.traders/ref/";
+            const userId = "GTC" + Math.random().toString(36).substr(2, 6).toUpperCase();
+            return baseUrl + userId;
         }
 
-        // Form submission handlers
-        document.getElementById('login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-            
-            // Here you would typically send the data to your server
-            console.log('Login attempt:', { email, password });
-            alert('Login functionality would be implemented here!');
-        });
+        // Initialize referral link on page load
+        window.onload = function() {
+            const referralLink = generateReferralLink();
+            document.getElementById('referralLink').value = referralLink;
+        };
 
-        document.getElementById('register-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('register-name').value;
-            const email = document.getElementById('register-email').value;
-            const password = document.getElementById('register-password').value;
-            const confirm = document.getElementById('register-confirm').value;
-            
-            if (password !== confirm) {
-                alert('Passwords do not match!');
-                return;
-            }
-            
-            // Here you would typically send the data to your server
-            console.log('Registration attempt:', { name, email, password });
-            alert('Registration functionality would be implemented here!');
-        });
+        function scrollToReferralLink() {
+            document.getElementById('referralSection').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
 
-        // Ripple effect
-        document.addEventListener('click', function(e) {
-            if (e.target.matches('.btn, .social-btn, .tab')) {
-                const button = e.target;
-                const ripple = document.createElement('span');
-                const rect = button.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
+        function copyReferralLink() {
+            const referralInput = document.getElementById('referralLink');
+            const copyBtn = document.getElementById('copyBtn');
+            const copyIcon = document.getElementById('copyIcon');
+            const copyText = document.getElementById('copyText');
+            
+            referralInput.select();
+            referralInput.setSelectionRange(0, 99999); // For mobile devices
+            
+            navigator.clipboard.writeText(referralInput.value).then(() => {
+                // Update button appearance
+                copyBtn.classList.add('copied');
+                copyIcon.className = 'fas fa-check';
+                copyText.textContent = 'Copied!';
                 
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.classList.add('ripple');
+                // Show success notification
+                showNotification('Referral link copied to clipboard!');
                 
-                button.appendChild(ripple);
-                
+                // Reset button after 2 seconds
                 setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            }
-        });
+                    copyBtn.classList.remove('copied');
+                    copyIcon.className = 'fas fa-copy';
+                    copyText.textContent = 'Copy';
+                }, 2000);
+            }).catch(() => {
+                // Fallback for older browsers
+                referralInput.select();
+                document.execCommand('copy');
+                showNotification('Referral link copied!');
+            });
+        }
 
-        // Add CSS for ripple animation
+        function shareToTwitter() {
+            const referralLink = document.getElementById('referralLink').value;
+            const text = "Join me at Global Traders Conference! Connect with traders worldwide 🚀";
+            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(referralLink)}`;
+            window.open(url, '_blank');
+        }
+
+        function shareToLinkedIn() {
+            const referralLink = document.getElementById('referralLink').value;
+            const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(referralLink)}`;
+            window.open(url, '_blank');
+        }
+
+        function shareToWhatsApp() {
+            const referralLink = document.getElementById('referralLink').value;
+            const text = "Join Global Traders Conference! Connect with traders worldwide and grow your network 📈";
+            const url = `https://wa.me/?text=${encodeURIComponent(text + " " + referralLink)}`;
+            window.open(url, '_blank');
+        }
+
+        function shareToTelegram() {
+            const referralLink = document.getElementById('referralLink').value;
+            const text = "Join Global Traders Conference! Connect with traders worldwide 🚀";
+            const url = `https://t.me/share/url?url=${encodeURIComponent(referralLink)}&text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+
+        function shareReferral() {
+            const referralLink = document.getElementById('referralLink').value;
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Join Global Traders Conference',
+                    text: 'Connect with traders worldwide and grow your network!',
+                    url: referralLink
+                });
+            } else {
+                copyReferralLink();
+            }
+        }
+
+        function joinCommunity() {
+            showNotification('Redirecting to community signup...');
+            // Add your community signup logic here
+        }
+
+        function getInsights() {
+            showNotification('Loading market insights...');
+            // Add your insights logic here
+        }
+
+        function startNetworking() {
+            showNotification('Opening networking platform...');
+            // Add your networking logic here
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(145deg, #4ECDC4, #44A08D);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => document.body.removeChild(notification), 300);
+            }, 3000);
+        }
+
+        // Add CSS animations for notifications
         const style = document.createElement('style');
         style.textContent = `
-            @keyframes ripple-animation {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-            
-            .btn, .social-btn, .tab {
-                position: relative;
-                overflow: hidden;
-            }
-            
-            /* Floating animation for background elements */
-            @keyframes float {
-                0%, 100% { transform: translateY(0px) rotate(0deg); }
-                33% { transform: translateY(-10px) rotate(1deg); }
-                66% { transform: translateY(5px) rotate(-1deg); }
-            }
-            
-            /* Pulse animation for logo */
-            @keyframes pulse {
-                0%, 100% { transform: scale(1); }
-                50% { transform: scale(1.05); }
-            }
-            
-            .logo {
-                animation: pulse 3s ease-in-out infinite;
-            }
-            
-            /* Slide in animations */
-            @keyframes slideInLeft {
-                from { transform: translateX(-100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            
-            @keyframes slideInRight {
+            @keyframes slideIn {
                 from { transform: translateX(100%); opacity: 0; }
                 to { transform: translateX(0); opacity: 1; }
             }
-            
-            .brand-section {
-                animation: slideInLeft 0.8s ease-out;
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
             }
-            
-            .form-section {
-                animation: slideInRight 0.8s ease-out;
-            }
-            
-            /* Fade in animation for features */
-            @keyframes fadeInUp {
-                from { transform: translateY(20px); opacity: 0; }
-                to { transform: translateY(0); opacity: 1; }
-            }
-            
-            .feature {
-                animation: fadeInUp 0.6s ease-out forwards;
-            }
-            
-            .feature:nth-child(1) { animation-delay: 0.2s; }
-            .feature:nth-child(2) { animation-delay: 0.4s; }
-            .feature:nth-child(3) { animation-delay: 0.6s; }
-            .feature:nth-child(4) { animation-delay: 0.8s; }
         `;
         document.head.appendChild(style);
 
-        // Enhanced form validation
-        function validateEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-
-        function validatePassword(password) {
-            // At least 8 characters, one uppercase, one lowercase, one number
-            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{8,}$/;
-            return passwordRegex.test(password);
-        }
-
-        // Real-time validation feedback
-        document.addEventListener('DOMContentLoaded', function() {
-            const inputs = document.querySelectorAll('input');
-            
-            inputs.forEach(input => {
-                input.addEventListener('blur', function() {
-                    validateInput(this);
-                });
-                
-                input.addEventListener('input', function() {
-                    clearValidationError(this);
-                });
-            });
-        });
-
-        function validateInput(input) {
-            const value = input.value.trim();
-            const inputContainer = input.closest('.form-group');
-            
-            // Remove existing error styling
-            input.classList.remove('error');
-            const existingError = inputContainer.querySelector('.error-message');
-            if (existingError) {
-                existingError.remove();
-            }
-            
-            let errorMessage = '';
-            
-            if (input.type === 'email' && value && !validateEmail(value)) {
-                errorMessage = 'Please enter a valid email address';
-            } else if (input.type === 'password' && value && input.id.includes('register') && !validatePassword(value)) {
-                errorMessage = 'Password must be at least 8 characters with uppercase, lowercase, and number';
-            } else if (input.id === 'register-confirm' && value) {
-                const password = document.getElementById('register-password').value;
-                if (value !== password) {
-                    errorMessage = 'Passwords do not match';
-                }
-            }
-            
-            if (errorMessage) {
-                input.classList.add('error');
-                const errorDiv = document.createElement('div');
-                errorDiv.className = 'error-message';
-                errorDiv.textContent = errorMessage;
-                inputContainer.appendChild(errorDiv);
-            }
-        }
-
-        function clearValidationError(input) {
-            input.classList.remove('error');
-            const inputContainer = input.closest('.form-group');
-            const existingError = inputContainer.querySelector('.error-message');
-            if (existingError) {
-                existingError.remove();
-            }
-        }
-
-        // Add error styling to CSS
-        const errorStyle = document.createElement('style');
-        errorStyle.textContent = `
-            .form-group input.error {
-                border-color: #ef4444 !important;
-                background: rgba(239, 68, 68, 0.1) !important;
-            }
-            
-            .error-message {
-                color: #ef4444;
-                font-size: 0.85rem;
-                margin-top: 8px;
-                display: flex;
-                align-items: center;
-                gap: 6px;
-            }
-            
-            .error-message::before {
-                content: "\f071";
-                font-family: "Font Awesome 5 Free";
-                font-weight: 900;
-                font-size: 0.9rem;
-            }
-        `;
-        document.head.appendChild(errorStyle);
-
-        // Enhanced keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab') {
-                document.body.classList.add('keyboard-nav');
+        // Add particle effect on click
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('cta-button')) {
+                createParticles(e.clientX, e.clientY);
             }
         });
 
-        document.addEventListener('mousedown', function() {
-            document.body.classList.remove('keyboard-nav');
-        });
+        function createParticles(x, y) {
+            for (let i = 0; i < 6; i++) {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: fixed;
+                    width: 6px;
+                    height: 6px;
+                    background: #4ECDC4;
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 1000;
+                    left: ${x}px;
+                    top: ${y}px;
+                `;
+                document.body.appendChild(particle);
 
-        // Add focus styles for keyboard navigation
-        const keyboardStyle = document.createElement('style');
-        keyboardStyle.textContent = `
-            .keyboard-nav .tab:focus,
-            .keyboard-nav .btn:focus,
-            .keyboard-nav .social-btn:focus {
-                outline: 3px solid rgba(255, 255, 255, 0.8);
-                outline-offset: 2px;
-            }
-            
-            .keyboard-nav input:focus {
-                outline: 3px solid #0e4d94;
-                outline-offset: 2px;
-            }
-        `;
-        document.head.appendChild(keyboardStyle);
+                const angle = (Math.PI * 2 * i) / 6;
+                const velocity = 100;
+                const vx = Math.cos(angle) * velocity;
+                const vy = Math.sin(angle) * velocity;
 
-        // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add some initial animations
-            setTimeout(() => {
-                document.body.classList.add('loaded');
-            }, 100);
-        });
-
-        // Add loaded state styles
-        const loadedStyle = document.createElement('style');
-        loadedStyle.textContent = `
-            body:not(.loaded) .container {
-                opacity: 0;
-                transform: scale(0.95);
+                let opacity = 1;
+                const animate = () => {
+                    const currentX = parseFloat(particle.style.left);
+                    const currentY = parseFloat(particle.style.top);
+                    
+                    particle.style.left = (currentX + vx * 0.02) + 'px';
+                    particle.style.top = (currentY + vy * 0.02) + 'px';
+                    particle.style.opacity = opacity;
+                    
+                    opacity -= 0.02;
+                    
+                    if (opacity > 0) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        document.body.removeChild(particle);
+                    }
+                };
+                animate();
             }
-            
-            .container {
-                transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            
-            body.loaded .container {
-                opacity: 1;
-                transform: scale(1);
-            }
-        `;
-        document.head.appendChild(loadedStyle);
-
-        console.log('GTC Login/Registration System Initialized Successfully! 🚀');
+        }
     </script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: auto;
-            min-height: 100vh;
-            overflow-x: hidden;
-            overflow-y: auto;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-        }
-
-        .background-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .floating-shape {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape-1 {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape-2 {
-            width: 120px;
-            height: 120px;
-            top: 60%;
-            right: 15%;
-            animation-delay: 2s;
-        }
-
-        .shape-3 {
-            width: 60px;
-            height: 60px;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        .container {
-            position: relative;
-            z-index: 2;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .login-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            width: 100%;
-            max-width: 1000px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 600px;
-        }
-
-        .brand-section {
-            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-            color: white;
-            padding: 60px 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .brand-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-
-        .logo {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 2;
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .features {
-            list-style: none;
-            position: relative;
-            z-index: 2;
-        }
-
-        .feature {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            opacity: 0;
-        }
-
-        .feature-icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 15px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        .form-section {
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .tabs {
-            display: flex;
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 4px;
-            margin-bottom: 30px;
-        }
-
-        .tab {
-            flex: 1;
-            padding: 12px 20px;
-            text-align: center;
-            border: none;
-            background: transparent;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .tab.active {
-            background: white;
-            color: #4a90e2;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-content {
-            position: relative;
-        }
-
-        .form-panel {
-            display: none;
-        }
-
-        .form-panel.active {
-            display: block;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e1e5e9;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #4a90e2;
-            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
-        }
-
-        .btn {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(74, 144, 226, 0.3);
-        }
-
-        .divider {
-            text-align: center;
-            margin: 20px 0;
-            position: relative;
-            color: #666;
-        }
-
-        .divider::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: #e1e5e9;
-        }
-
-        .divider span {
-            background: white;
-            padding: 0 20px;
-            position: relative;
-        }
-
-        .social-login {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .social-btn {
-            flex: 1;
-            padding: 12px;
-            border: 2px solid #e1e5e9;
-            background: white;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-weight: 600;
-        }
-
-        .social-btn:hover {
-            border-color: #4a90e2;
-            transform: translateY(-2px);
-        }
-
-        .forgot-password {
-            text-align: center;
-            color: #4a90e2;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .forgot-password:hover {
-            text-decoration: underline;
-        }
-
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.6);
-            transform: scale(0);
-            animation: ripple-animation 0.6s linear;
-            pointer-events: none;
-        }
-
-        @media (max-width: 768px) {
-            .login-container {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-            }
-
-            .brand-section {
-                padding: 40px 20px;
-            }
-
-            .form-section {
-                padding: 30px 20px;
-            }
-
-            .logo {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 10px;
-                align-items: flex-start;
-                min-height: auto;
-                padding-top: 20px;
-                padding-bottom: 20px;
-            }
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-    </style>
     <footer class="footer">
   <div class="footer-container">
     <div class="footer-top">
